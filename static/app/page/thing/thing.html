@@ -1,0 +1,132 @@
+<div class="el-thing-mobileview-container">
+	<div class="el-thing-mobileview-container-decor">
+		<div class="el-thing-mobileview-container-decor-bottom"></div>
+		<div class="el-thing-mobileview-container-decor-middle"></div>
+		<div class="el-thing-mobileview-container-decor-top"></div>
+	</div>
+	<div class="el-thing-mobileview">
+		<el-mobileview>
+
+			<el-choice class="el-thing-menu" el-visible="menuVisible" el-bg-click="menuClickBg()">
+				<el-choice-header>
+					{{thing.name}}
+				</el-choice-header>
+				<el-choice-item
+					el-icon="paste"
+					el-text="Recopier depuis un modèle…"
+					el-click="menuDoImport()"
+					el-long-icon="copy"
+					el-long-text="Cloner cet objet…"
+					el-long-click="menuDoExport()"
+				></el-choice-item>
+				<el-choice-item
+					el-icon="anchor"
+					el-text="Ranger dans…"
+					el-click="menuMoveTo()"
+					el-long-icon="archive"
+					el-long-text="Inventorier un conteneur…"
+					el-long-click="menuInventory()"
+				></el-choice-item>
+				<el-choice-item
+					el-icon="barcode"
+					el-text="Réimprimer petit format"
+					el-click="menuPrintSmall()"
+					el-long-icon="square-o"
+					el-long-text="Réimprimer grand format"
+					el-long-click="menuPrintBig()"
+				></el-choice-item>
+			</el-choice>
+
+			<el-mobileview-content>
+				<div ng-if="thing.id">
+					<div ng-switch="nav.tab">
+						<div class="el-thing-content" ng-switch-when="DESCRIPTION">
+
+							<div class="el-thing-readwriter el-thing-readwriter-{{readwrite?'rw':'ro'}}" ng-click="readwrite = !readwrite"><i class="fa fa-{{readwrite?'unlock-alt':'lock'}}"></i></div>
+							<div class="el-thing-actioner   el-actioner-{{readwrite?'rw':'ro'}}" ng-click="menuShow()"><i class="fa fa-th-large"></i></div>
+
+							<div class="el-thing-code">{{eanNormalize(thing.id)}}<span class="el-thing-visualid">{{eanVisualCode(thing.id)}}</span></div>
+
+
+							<div class="el-thing-name" ng-if="!readwrite">{{thing.name}}</div>
+
+
+							<div class="form-group" ng-if="readwrite">
+								<label>Nom</label>
+								<input
+									class="el-thing-name-input form-control"
+									type="text"
+									placeholder="Nom de l'objet"
+									ng-model="thing.name">
+							</div>
+
+							<hr/>
+
+							<el-markdown ng-if="!readwrite" el-content="thing.description"></el-markdown>
+
+							<div class="form-group" ng-if="readwrite">
+								<label>Description</label>
+								<textarea
+									el-elastic
+									class="el-thing-description form-control"
+									placeholder="Description de l'objet"
+									ng-model="thing.description">
+								</textarea>
+							</div>
+
+							<img class="el-image" ng-if="!readwrite && thing.image_id" ng-src="/api/blobs/{{thing.image_id}}" />
+
+							<div class="form-group" ng-if="readwrite">
+								<label>Image</label>
+								<el-blob-image ng-model="thing.image_id"></el-blob-image>
+							</div>
+						</div>
+						<div class="el-thing-content" ng-switch-when="LOCATION">
+
+							<div>
+								<div style="position: relative; margin-bottom:15px;" ng-if="!$first || $last" ng-repeat="parent in ancestors">
+									<el-thing-preview el-thing="parent"></el-thing-preview>
+									<div style="position: absolute; bottom: -17px; left:4px; color: #ccc;">&#9650;</div>
+								</div>
+							</div>
+
+							<div style="">
+								<ul class="media-list">
+									<span style="position: relative;">
+										<el-thing-preview el-highlight="true" el-thing="thing" style="margin-bottom: 0;"></el-thing-preview>
+										<div style="position: relative; margin-left: 10px; padding-left: 10px">
+											<div ng-repeat="child in children" style="position: relative;">
+												<div style="z-index: -1; position: absolute; top: -60%; left: -10px; width: 10px; height: 120%; border-left: 1px solid #ccc; border-bottom: 1px solid #ccc;"></div>
+												<el-thing-preview el-thing="child"></el-thing-preview>
+											</div>
+										</div>
+									</span>
+								</ul>
+							</div>
+						</div>
+						<div ng-switch-when="INPUT">
+							<el-barcode-keyboard-input el-code="onNewBarcode(code)" el-close="nav.goToLastContentTab()"></el-barcode-keyboard-input>
+						</div>
+
+						<div ng-switch-when="SEARCH">
+							<el-page-search></el-page-search>
+						</div>
+					</div>
+				</div>
+			</el-mobileview-content>
+
+			<el-mobileview-navbar>
+				<el-mobileview-navbar-category icon="info-circle" text="Info"        name="DESCRIPTION" >
+					<el-mobileview-navbar-page icon="search"      text="Recherche"     name="SEARCH"       ></el-mobileview-navbar-page>
+					<el-mobileview-navbar-page icon="list-alt"    text="Description" name="DESCRIPTION" el-mobileview-navbar-default></el-mobileview-navbar-page>
+					<el-mobileview-navbar-page icon="map-marker"  text="Lieu"        name="LOCATION"    ></el-mobileview-navbar-page>
+				</el-mobileview-navbar-category>
+
+				<el-mobileview-navbar-category icon="cog"         text="Options">
+					<el-mobileview-navbar-page icon="archive"     text="Contenu"     name="SETTINGS"     ></el-mobileview-navbar-page>
+				</el-mobileview-navbar-page>
+
+			</el-mobileview-navbar>
+		</el-mobileview>
+	</div>
+</div>

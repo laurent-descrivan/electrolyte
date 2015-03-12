@@ -1,0 +1,7 @@
+.el-elastic {
+	resize: none;
+	-webkit-transition: height 50ms ease-in-out;
+	   -moz-transition: height 50ms ease-in-out;
+	     -o-transition: height 50ms ease-in-out;
+	        transition: height 50ms ease-in-out;
+}

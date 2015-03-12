@@ -1,0 +1,21 @@
+el-mobileview-content {
+	position: absolute;
+	z-index: 0; /* Add a stacking context */
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	overflow-x: hidden;
+	overflow-y:scroll;
+	padding-bottom: 70px;
+	background-color: #FCFCFC;
+}
+
+el-mobileview-content.mobileview-content-scrollfix:before {
+	content: "";
+	position: absolute;
+	top:0px;
+	bottom: -2px;
+	width: 1px;
+	visibility: hidden;
+}

@@ -1,0 +1,34 @@
+<div class="el-stickers-page">
+	<div style="position: absolute; font-size:1;">&nbsp;</div>
+	<div style="z-index: 999; position: absolute; right: 50%; top: 100mm; bottom: 100mm; width: 210mm; border-right: 1pt solid blue;"></div>
+	<div style="z-index: 999; position: absolute; left: 100mm; bottom: 50%; right: 100mm; height: 297mm; border-bottom: 1pt solid green;"></div>
+	ddd	{{table_table_style}}
+
+	<div class="el-stickers-table" ng-style="tableContainerStyle">
+		<table class="el-stickers-table-table" ng-style="tableTableStyle">
+			<tr class="el-stickers-table-tr" ng-repeat="row in codes">
+				<td class="el-stickers-table-td" ng-repeat="code in row">
+					<div class="ael-sticker ael-sticker-{{format}}">
+						<div class="ael-visual-id-box-letter">{{eanVisualCode(code)}}</div>
+						<div class="ael-visual-id-box-barcode">
+							<div class="ael-logo"></div>
+							<div class="ael-url">http://www.electrolab.fr/</div>
+							<el-barcode el-code="{{code}}"></el-barcode>
+						</div>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+
+	<!--div class="el-page">
+		<div class="el-sticker el-sticker-{{format}}" ng-repeat="ean in eans">
+			<div class="el-visual-id-box-letter">{{eanVisualCode(ean)}}</div>
+			<div class="el-visual-id-box-barcode">
+				<div class="el-logo"></div>
+				<div class="el-url">http://www.electrolab.fr/</div>
+				<el-barcode el-code="{{ean}}"></el-barcode>
+			</div>
+		</div>
+	</div-->
+</div>

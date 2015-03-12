@@ -1,0 +1,7 @@
+<div class="el-thing-search">
+	<div class="el-thing-search-inputs">
+		<div class="el-thing-search-inputs-text"><input class="form-control" type="text" placeholder="Recherche par nom" ng-model="search.query.text"></div>
+		<div class="el-thing-search-inputs-barcodebutton" ng-click="clickBarcodeInput()"> ou&nbsp;&nbsp;<i class="fa fa-barcode"></i></div>
+	</div>
+	<el-thing-preview ng-repeat="thing in search.result" el-thing="thing"></el-thing-preview>
+</div>

@@ -1,0 +1,20 @@
+.el-blob-image {
+	position: relative;
+	display: block;
+	width: 100%;
+}
+
+.el-blob-image-img {
+	width: 100%;
+}
+
+.el-blob-image-icon-uploading {
+	position: absolute;
+	display: none;
+	right: 10px;
+	top: 10px;
+	text-shadow: 1px 0 0 #FFF, -1px 0 0 #FFF, 0 1px 0 #FFF, 0 -1px 0 #FFF, 1px 1px #FFF, -1px -1px 0 #FFF, 1px -1px 0 #FFF, -1px 1px 0 #FFF;
+}
+.el-blob-image-uploading > .el-blob-image-icon-uploading {
+	display: block;
+}

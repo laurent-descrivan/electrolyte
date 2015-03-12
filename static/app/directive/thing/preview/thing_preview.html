@@ -1,0 +1,8 @@
+<div class="el-thing-preview" ng-click="click()" ng-class="{'el-thing-preview-highlighted': elHighlight}">
+	<div class="el-thing-preview-highlight"></div>
+	<div class="el-thing-preview-image" style="background-image: url({{getImageUrl(elThing.image_id)}})"></div>
+	<div class="el-thing-preview-text">
+		<div class="el-thing-preview-title">{{elThing.name}} {{eanVisualCode(elThing.id)}}</div>
+		<div class="el-thing-preview-desc">{{elThing.description}}</div>
+	</div>
+</div>

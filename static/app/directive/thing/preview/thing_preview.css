@@ -1,0 +1,56 @@
+.el-thing-preview {
+	position: relative;
+	height: 64px;
+	margin: 10px 0;
+}
+
+.el-thing-preview > .el-thing-preview-highlight {
+	position: absolute;
+	z-index: -1;
+	top: -3px;
+	right: -3px;
+	bottom: -3px;
+	left: -3px;
+}
+
+.el-thing-preview.el-thing-preview-highlighted > .el-thing-preview-highlight {
+	background-color: #E5ECFC;
+	border: 1px solid #A1C1FF;
+}
+
+/* @media is because we don't want hover in mobile where there is no visible cursor */
+@media screen and (min-width: 400px) {
+	.el-thing-preview:hover > .el-thing-preview-highlight{
+		background-color: #F1F4FD !important;
+	}
+}
+
+.el-thing-preview:active > .el-thing-preview-highlight{
+	background-color: #F2F6FD !important;
+}
+
+.el-thing-preview-image {
+	width: 64px;
+	height: 64px;
+	background-color: white;
+	background-size: cover;
+	background-position: center center;
+	border: 1px solid #ddd;
+	float: left;
+}
+
+.el-thing-preview-text {
+	padding-left: 70px;
+	padding-top: 6px;
+}
+
+.el-thing-preview-title {
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.el-thing-preview-desc {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: pre;
+}

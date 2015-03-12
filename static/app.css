@@ -1,0 +1,219 @@
+@font-face {
+	font-family: 'droid';
+	src: url('droid-sans-mono/DroidSansMono.ttf');
+	font-weight: normal;
+	font-style: normal;
+}
+
+html {
+	overflow: hidden;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+body {
+	background-color: #FCFCFC;
+}
+
+.el-app {
+	overflow:hidden;
+}
+
+.el-thing-content {
+	padding: 0 5px;
+	position: relative;
+	overflow: hidden;
+}
+.el-thing-name {
+	display: block;
+}
+
+el-ean {
+	position: relative;
+	display: block;
+	/* make this container have size */
+	border: 1px solid transparent;
+	/*width: 100%;*/
+}
+
+el-ean > canvas {
+	width: 100%;
+	height: 100%;
+
+	/*
+		FIX allow a white quiet zone around the barcode
+		as specified by ean-13 specs (11X & 7X, X=size of smallest bar)
+	*/
+	margin-left: 7%;
+	padding-right: 1%;
+}
+
+.el-sticker {
+	overflow: hidden;
+	/*border: 1pt solid black;*/
+	display: inline-block;
+}
+
+.el-sticker-a4-8 {
+	position: relative;
+	width: 63.5mm;
+	height: 33.9mm;
+}
+
+/*
+	Single unit square box
+	A sticker containes one or more boxes depending on its size
+*/
+.el-visual-id-box-letter {
+	position: absolute;
+	width: 52mm;
+	height: 33.9mm;
+	overflow: hidden;
+	font-family: 'droid', 'Arial black', 'Arial', sans-serif;
+	text-align: left;
+	left: -5mm;
+	-webkit-transform: scaleX(0.8);
+	font-size: 43mm;
+	line-height: 30mm;
+	vertical-align: top;
+	letter-spacing: 0mm;
+}
+
+/*
+.el-sticker-a4-8 > .el-visual-id-box-letter-a {
+	top: 50%;
+	left: 0mm;
+}
+
+.el-sticker-a4-8 > .el-visual-id-box-letter-b {
+	top: 50%;
+	left: 23mm;
+}*/
+
+.el-sticker-a4-8 .el-url {
+	font-family: 'Courier', monospace;
+	font-size: 1.8mm;
+	position: absolute;
+	left: 0;
+	right: 0;
+	margin-left: 2mm;
+	bottom: 50%;
+	margin-bottom: 1.5mm;
+	text-align: center;
+}
+
+.el-sticker-a4-8 .el-logo {
+	position: absolute;
+	top: 0;
+	right: 50%;
+	bottom: 50%;
+	left: 0;
+	background-image: url(space.png);
+	background-position: center;
+	background-size: contain;
+	background-repeat: no-repeat;
+	margin-bottom: 3mm;
+}
+
+.el-visual-id-box-barcode {
+	position: absolute;
+	width: 23mm;
+	height: 32mm;
+	margin-top: -16mm;
+	overflow: hidden;
+	top: 50%;
+	right: 0mm;
+}
+
+.el-sticker-a4-8 .el-barcode {
+	position: absolute;
+
+/*	top: 0;
+	left 0;
+	width: 100%;
+	height: 50%;
+*/
+	bottom: 0mm;
+	left: 50%;
+	margin-left: -50%;
+	width: 100%;
+	height: 50%;
+}
+
+@media print {
+	* {
+		-webkit-print-color-adjust: exact;
+		print-color-adjust: exact;
+	}
+}
+
+@page {
+	size: portrait;
+    /*size: 297mm 210mm;    auto is the initial value */
+
+    /* this affects the margin in the printer settings */
+    margin: 0;
+}
+
+.btn-group-vertical {
+	line-height: 15mm;
+}
+
+.logobar {
+	display: block;
+	position: absolute;
+	font-size: 26px;
+	top: 8px;
+	right: 10px;
+}
+.logobar > *{
+	vertical-align: middle;
+}
+.readwritelogo {
+	color: #C90000;
+}
+
+
+
+@-webkit-keyframes changewidth {
+	from {
+		left: +100%;
+	}
+
+	40% {
+		left: 0%;
+	}
+
+	60% {
+		left: 0%;
+	}
+
+	to {
+		left: -100%;
+	}
+}
+
+
+.el-thing-page-input {
+	position: absolute;
+	bottom: 100px;
+	left: 0;
+	right: 0;
+	text-align: center;
+	font-size: 10vmin;
+	line-height: 0;
+}
+
+.el-thing-page-input-title {
+	line-height: 28px;
+}
+
+.el-thing-page-input-barcode {
+	font-size: 400%;
+}
+
+.el-thing-page-input-code {
+	font-family: monospace;
+	font-size: 76%;
+}

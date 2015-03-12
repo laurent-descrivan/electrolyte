@@ -1,0 +1,33 @@
+.el-thing-readwriter {
+	position: absolute;
+	z-index: 10;
+	display: block;
+	/*
+		Willfully overshoot the size of the button,
+		since it does not obstruct any other button.
+	*/
+	top: -20px;
+	right: -15px;
+	margin: 0;
+	padding: 20px 20px 0 0;
+	font-size: 28px;
+	text-align: right;
+	width: 80px;
+	height: 75px;
+	color: #2454B2;
+}
+
+/* @media is because we don't want hover in mobile where there is no visible cursor */
+@media screen and (min-width: 400px) {
+	.el-thing-readwriter:hover {
+		opacity: 0.8;
+	}
+}
+
+.el-thing-readwriter:active {
+	opacity: 0.6;
+}
+
+.el-thing-readwriter-rw {
+	color: #8F240E;
+}

@@ -1,0 +1,10 @@
+<div
+	class="el-blob-image img-thumbnail"
+	ng-class="{'el-blob-image-uploading': uploading}"
+	ng-click="upload()"
+>
+	<img
+		class="el-blob-image-img"
+		ng-src="{{blobUrl(id)}}">
+	<i class="el-blob-image-icon-uploading fa fa-refresh fa-spin"></i>
+</div>

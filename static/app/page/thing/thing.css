@@ -1,0 +1,90 @@
+
+hr {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.el-image {
+	width: 100%;
+}
+
+.el-thing-code {
+	font-size: 28px;
+	font-weight: 300;
+	margin: 0px 25px 0 33px
+}
+
+.el-thing-visualid {
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+}
+
+.el-thing-name {
+	font-weight: 500;
+	font-size: 30px;
+}
+
+.el-thing-mobileview {
+	position: absolute;
+	overflow: hidden;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	width: 100%;
+}
+
+.el-thing-mobileview-container-decor {
+	display: none;
+}
+
+.el-thing-mobileview-container-decor > * {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+.el-thing-mobileview-container-decor-top {
+	background: url("/app/page/thing/smartphone_top.png") top left no-repeat;
+	background-size: 368px auto;
+}
+
+.el-thing-mobileview-container-decor-middle {
+	top: 84px;
+	bottom: 122px;
+	background: url("/app/page/thing/smartphone_middle.png") top left repeat-y;
+	background-size: 368px auto;
+}
+
+.el-thing-mobileview-container-decor-bottom {
+	background: url("/app/page/thing/smartphone_bottom.png") bottom left no-repeat;
+	background-size: 368px auto;
+	top: 63px;
+}
+
+@media screen and (min-width: 401px) {
+	.el-thing-mobileview-container {
+		position: absolute;
+		left: 50%;
+		width: 368px;
+		margin-left: -184px;
+		top: 1px;
+		bottom: 1px;
+		min-height: 350px;
+	}
+
+	.el-thing-mobileview {
+		top: 83px;
+		right: 17px;
+		bottom: 121px;
+		left: 14px;
+		width: auto;
+		background-color: white;
+	}
+
+	.el-thing-mobileview-container-decor {
+		display: block;
+	}
+}

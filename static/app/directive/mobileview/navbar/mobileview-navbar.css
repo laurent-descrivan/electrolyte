@@ -1,0 +1,84 @@
+.el-mobileview-navbar {
+	-webkit-transition: height 100ms ease-in-out;
+	   -moz-transition: height 100ms ease-in-out;
+	     -o-transition: height 100ms ease-in-out;
+	        transition: height 100ms ease-in-out;
+}
+
+
+.el-mobileview-navbar-pages {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	height: 60px;
+}
+
+.el-mobileview-navbar-categories {
+	position: absolute;
+	color: #909090;
+	background-color: #222;
+	top: 60px;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+
+.el-mobileview-navbar-background {
+
+	-webkit-transition: background-color 100ms ease-in-out 50ms, height 0s linear 150ms;
+	   -moz-transition: background-color 100ms ease-in-out 50ms, height 0s linear 150ms;
+	     -o-transition: background-color 100ms ease-in-out 50ms, height 0s linear 150ms;
+	        transition: background-color 100ms ease-in-out 50ms, height 0s linear 150ms;
+
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	height: 0%;
+	background-color: transparent;
+}
+
+.el-mobileview-navbar-category-shown .el-mobileview-navbar-background {
+	height: 100%;
+	background-color: rgba(0,0,0,0.7);
+	-webkit-transition: background-color 100ms ease-in-out 0s, height 0s linear 0s;
+	   -moz-transition: background-color 100ms ease-in-out 0s, height 0s linear 0s;
+	     -o-transition: background-color 100ms ease-in-out 0s, height 0s linear 0s;
+	        transition: background-color 100ms ease-in-out 0s, height 0s linear 0s;
+}
+
+
+
+/* ITEM CSS */
+
+.el-mobileview-navbar-item {
+	position: relative;
+	width: 20%;
+	float: left;
+	display: block;
+	height: 100%;
+	padding: 10px 0;
+	cursor: pointer;
+}
+
+.el-mobileview-navbar-item > * {
+	position: absolute;
+	width: 100px;
+	left: 50%;
+	margin-left: -50px;
+}
+
+.el-mobileview-navbar-item .el-icon {
+	display: block;
+}
+
+.el-mobileview-navbar-item .el-title {
+	font-size: 40%;
+}
+
+.el-mobileview-navbar-item.el-mobileview-navbar-selected {
+	cursor: auto;
+	/*background-color: #FCFCFC;*/
+	color: #88DC00;
+}

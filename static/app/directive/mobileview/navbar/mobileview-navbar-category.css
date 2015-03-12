@@ -1,0 +1,109 @@
+.el-mobileview-navbar-category-container {
+	display: none;
+	position: absolute;
+	z-index: 10;
+	height: 60px;
+	left: 0;
+	right: 0;
+	bottom: 0;
+
+	background-color: #2C2C29;
+	color: #909090;
+	padding: 10px;
+	text-align: center;
+	padding: 0;
+	font-size: 28px;
+	line-height: 0px;
+}
+
+.el-mobileview-navbar-category-container.el-mobileview-navbar-selected {
+	display: block;
+}
+
+.el-mobileview-navbar-item-category {
+	-webkit-transition: -webkit-transform 100ms ease-in-out 0s, color 100ms ease-in-out 0s, left 0s ease-in-out 150ms;
+	   -moz-transition:    -moz-transform 100ms ease-in-out 0s, color 100ms ease-in-out 0s, left 0s ease-in-out 150ms;
+	     -o-transition:      -o-transform 100ms ease-in-out 0s, color 100ms ease-in-out 0s, left 0s ease-in-out 150ms;
+	        transition:         transform 100ms ease-in-out 0s, color 100ms ease-in-out 0s, left 0s ease-in-out 150ms;
+
+	-webkit-transform: scale(2);
+	   -moz-transform: scale(2);
+	     -o-transform: scale(2);
+	        transform: scale(2);
+
+	position: relative;
+	width: 50%;
+	float: left;
+	display: block;
+	text-align: center;
+	height: 100%;
+	padding: 10px 0;
+	font-size: 100px;
+	line-height: 0;
+	height: 160px;
+	cursor: pointer;
+	color: transparent;
+
+	left: 1000%;
+}
+.el-mobileview-navbar-item-category.el-mobileview-navbar-selected {
+	color: ;
+}
+
+.el-mobileview-navbar-item-category .el-title {
+	font-size: 20%;
+}
+
+.el-mobileview-navbar-category-shown .el-mobileview-navbar-item-category {
+	-webkit-transform: scale(1);
+	   -moz-transform: scale(1);
+	     -o-transform: scale(1);
+	        transform: scale(1);
+
+	color: #B0B0B0;
+
+	-webkit-transition: -webkit-transform 100ms ease-in-out 50ms, color 100ms ease-in-out 50ms;
+	   -moz-transition:    -moz-transform 100ms ease-in-out 50ms, color 100ms ease-in-out 50ms;
+	     -o-transition:      -o-transform 100ms ease-in-out 50ms, color 100ms ease-in-out 50ms;
+	        transition:         transform 100ms ease-in-out 50ms, color 100ms ease-in-out 50ms;
+
+	left: 0px;
+}
+
+.el-mobileview-navbar-category-shown .el-mobileview-navbar-item-category.el-mobileview-navbar-selected {
+	color: #9EFF00;
+}
+
+
+
+
+/* Technique from http://stackoverflow.com/questions/8720931/can-css-detect-the-number-of-children-an-element-has/12198561#12198561 */
+
+/* one item */
+*:first-child:nth-last-child(1)     > .el-mobileview-navbar-item {
+    width: 100%;
+}
+
+/* two items */
+*:first-child:nth-last-child(2)     > .el-mobileview-navbar-item,
+*:first-child:nth-last-child(2) ~ * > .el-mobileview-navbar-item {
+    width: 50%;
+}
+
+/* three items */
+*:first-child:nth-last-child(3)     > .el-mobileview-navbar-item,
+*:first-child:nth-last-child(3) ~ * > .el-mobileview-navbar-item {
+    width: 33.3333%;
+}
+
+/* four items */
+*:first-child:nth-last-child(4)     > .el-mobileview-navbar-item,
+*:first-child:nth-last-child(4) ~ * > .el-mobileview-navbar-item {
+    width: 25%;
+}
+
+/* five items */
+*:first-child:nth-last-child(5)     > .el-mobileview-navbar-item,
+*:first-child:nth-last-child(5) ~ * > .el-mobileview-navbar-item {
+    width: 20%;
+}

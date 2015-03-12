@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" id="svg2" sodipodi:docname="Android Buttons.svg" viewBox="0 0 50.199333 100.00003" version="1.1" inkscape:version="0.48.4 r9939">
+  <defs id="defs4">
+    <linearGradient id="linearGradient4226">
+      <stop id="stop4228" style="stop-color:#ffffff" offset="0"/>
+      <stop id="stop4230" style="stop-color:#ffffff;stop-opacity:0" offset="1"/>
+    </linearGradient>
+  </defs>
+  <sodipodi:namedview id="base" fit-margin-left="0" inkscape:zoom="4" borderopacity="1.0" inkscape:current-layer="layer1" inkscape:cx="6.0369717" inkscape:cy="45.631692" inkscape:snap-grids="false" inkscape:window-maximized="1" showgrid="false" fit-margin-right="0" inkscape:guide-bbox="true" showguides="true" bordercolor="#666666" inkscape:window-x="-8" inkscape:window-y="-8" fit-margin-bottom="0" inkscape:window-width="1366" inkscape:pageopacity="0.0" inkscape:pageshadow="2" pagecolor="#ffffff" inkscape:snap-to-guides="false" inkscape:document-units="px" inkscape:window-height="716" fit-margin-top="0" inkscape:object-paths="true" inkscape:object-nodes="true"/>
+  <g id="layer1" inkscape:label="Layer 1" inkscape:groupmode="layer" transform="translate(-73.113168,-59.65495)">
+    <path inkscape:connector-curvature="0" id="path3785" d="m 97.882123,59.655006 c -6.117711,0.0079 -12.229608,0.03912 -18.346954,0.544959 0,0 -6.050426,0.290841 -6.403269,3.383288 0,0 -0.09322,4.362687 0.13624,10.558581 L 73.1319,154.70494 c 0.144749,3.90932 3.384305,4.65886 14.373294,4.74569 l 10.490462,0.18165 0,0.0227 0.113533,0 0.113533,0 0,-0.0227 10.467758,-0.18165 c 10.98928,-0.0868 14.2514,-0.8363 14.396,-4.74569 l -0.13624,-80.563106 c 0.22946,-6.195603 0.13624,-10.558581 0.13624,-10.558581 -0.35287,-3.092389 -6.40327,-3.383288 -6.40327,-3.383288 -6.11786,-0.505852 -12.25159,-0.537053 -18.369661,-0.544959 -0.145279,-1.87e-4 -0.286147,1.72e-4 -0.431426,0 z m -22.842866,8.106266 45.935503,0 0,81.176188 -45.935503,0 0,-81.176188 z" style="fill:#171717"/>
+    <rect y="143.11366" x="75.028145" height="5.8216162" width="45.937866" id="rect3821" style="fill:#010101;fill-opacity:1;stroke:none"/>
+    <path id="path3789" sodipodi:rx="1.4955357" sodipodi:ry="1.5401785" style="color:#000000;fill:#3d3d3d;fill-opacity:1" sodipodi:type="arc" d="m 314.55358,-14.788671 c 0,0.850618 -0.66957,1.540179 -1.49554,1.540179 -0.82596,0 -1.49553,-0.689561 -1.49553,-1.540179 0,-0.850617 0.66957,-1.540178 1.49553,-1.540178 0.82597,0 1.49554,0.689561 1.49554,1.540178 z" transform="matrix(0.19380196,0,0,0.19380196,20.480903,67.213951)" sodipodi:cy="-14.788671" sodipodi:cx="313.05804"/>
+    <path id="path3791" d="m 123.0669,72.216675 v 6.402397" style="fill:none;stroke:#5a5a5a;stroke-width:0.46512616" inkscape:connector-curvature="0"/>
+    <path id="path3793" sodipodi:rx="3.875" sodipodi:ry="4.78125" style="color:#000000;fill:#3d3d3d" sodipodi:type="arc" d="m 403.6875,-14.583312 c 0,2.640611 -1.7349,4.78125 -3.875,4.78125 -2.1401,0 -3.875,-2.140639 -3.875,-4.78125 0,-2.640611 1.7349,-4.78125 3.875,-4.78125 2.1401,0 3.875,2.140639 3.875,4.78125 z" transform="matrix(0.25007079,0,0,0.20266663,-1.9917535,67.270627)" sodipodi:cy="-14.583312" sodipodi:cx="399.8125"/>
+    <rect y="67.761269" x="75.039253" height="3.2975364" width="45.935505" id="rect3824" style="fill:#010101;fill-opacity:1;stroke:none"/>
+    <g id="g3852" transform="matrix(0.72661203,0,0,0.72661203,19.98826,43.647743)">
+      <path id="path4478" d="m 123.38717,36.386 c 0.21393,-0.04168 0.25283,-0.03333 0.36674,0" sodipodi:nodetypes="cc" style="fill:none;stroke:#ffffff;stroke-width:0.26672px" inkscape:connector-curvature="0"/>
+      <path id="path4478-3" d="m 122.92917,35.853 c 0.33896,-0.35841 1.0113,-0.31673 1.3169,-0.01667" sodipodi:nodetypes="cc" style="fill:none;stroke:#ffffff;stroke-width:0.26672px" inkscape:connector-curvature="0"/>
+      <path id="path4478-3-0" d="m 122.43717,35.347 c 0.73904,-0.65014 1.6114,-0.63346 2.2588,0.0084" sodipodi:nodetypes="cc" style="fill:none;stroke:#ffffff;stroke-width:0.26672px" inkscape:connector-curvature="0"/>
+      <path id="path4478-3-0-7" d="m 122.01617,34.788 c 0.92241,-0.89185 2.4116,-0.78349 3.1423,-0.05001" sodipodi:nodetypes="cc" style="fill:none;stroke:#ffffff;stroke-width:0.26672px" inkscape:connector-curvature="0"/>
+      <path id="path4542" d="m 125.27117,36.753 -0.008,-0.40008 0.49177,-0.28339 -0.008,0.68347 z" style="fill:#f6f6f6" inkscape:connector-curvature="0"/>
+      <path id="path4544" d="m 125.97117,36.736 0.0333,-1.0585 0.39175,-0.29173 v 1.3753 z" style="fill:#f6f6f6" inkscape:connector-curvature="0"/>
+      <path id="path4546" sodipodi:nodetypes="ccccc" inkscape:connector-curvature="0" style="fill:#f6f6f6" d="m 126.65917,36.736 0.0333,-1.7379 0.39175,-0.29173 v 2.0546 z"/>
+      <path id="path4561" sodipodi:nodetypes="ccccc" d="m 127.33017,36.732 0.0353,-2.3296 0.41479,-0.29173 v 2.6464 z" style="fill:#f6f6f6" inkscape:connector-curvature="0"/>
+      <path id="path4563" d="m 128.84717,36.678 h 1.6503 v -2.4422 h -0.55011 v -0.25839 h -0.57512 v 0.25005 h -0.53345 z" sodipodi:nodetypes="ccccccccc" style="fill:#f6f6f6" inkscape:connector-curvature="0"/>
+      <text id="text4565" style="font-size:3.08699989px;line-height:100%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;font-family:Sans" sodipodi:linespacing="100%" y="36.543533" x="131.34911" xml:space="preserve">
+        <tspan id="tspan4567" sodipodi:role="line" style="font-size:3.08699989px;line-height:100%;word-spacing:0px;fill:#ffffff;font-family:Sans" y="36.543533" x="131.34911">4:45</tspan>
+      </text>
+    </g>
+    <g id="g3877">
+      <path sodipodi:nodetypes="cccc" d="m 82.552244,145.55846 3.520222,0.0318 c 0.940308,0.0134 0.800907,1.33239 -0.01211,1.33239 l -1.707902,0.0121" inkscape:connector-curvature="0" style="fill:none;stroke:#ffffff;stroke-width:0.19380195px" id="path3795">
+        <title id="title3797">Android Buttons</title>
+      </path>
+      <path id="path3865" style="fill:none;stroke:#ffffff;stroke-width:0.19380195px" inkscape:connector-curvature="0" d="m 83.189676,144.82712 -0.637432,0.73134 0.625322,0.85544" sodipodi:nodetypes="ccc">
+        <title id="title3867">Android Buttons</title>
+      </path>
+    </g>
+    <path sodipodi:nodetypes="cccccccc" d="m 110.09178,144.85753 3.35521,0.0121 0,1.44138 m -4.37282,-0.77523 3.513,0 0,1.34453 -3.513,0 z" inkscape:connector-curvature="0" style="fill:none;stroke:#ffffff;stroke-width:0.19380195px" id="path3869">
+      <title id="title3871">Android Buttons</title>
+    </path>
+    <path sodipodi:nodetypes="cccccc" d="m 95.593168,147.06196 4.530002,0.0242 0,-1.41719 -2.289102,-0.88421 -2.2409,0.94481 z" inkscape:connector-curvature="0" style="fill:none;stroke:#ffffff;stroke-width:0.19380195px" id="path3873">
+      <title id="title3875">Android Buttons</title>
+    </path>
+  </g>
+  <metadata id="metadata37">
+    <rdf:RDF>
+      <cc:Work>
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+        <cc:license rdf:resource="http://creativecommons.org/licenses/publicdomain/"/>
+        <dc:publisher>
+          <cc:Agent rdf:about="http://openclipart.org/">
+            <dc:title>Openclipart</dc:title>
+          </cc:Agent>
+        </dc:publisher>
+        <dc:title/>
+      </cc:Work>
+      <cc:License rdf:about="http://creativecommons.org/licenses/publicdomain/">
+        <cc:permits rdf:resource="http://creativecommons.org/ns#Reproduction"/>
+        <cc:permits rdf:resource="http://creativecommons.org/ns#Distribution"/>
+        <cc:permits rdf:resource="http://creativecommons.org/ns#DerivativeWorks"/>
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+</svg>

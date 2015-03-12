@@ -1,0 +1,49 @@
+.el-stickers-page {
+	padding: 0;
+	margin: 0;
+	width: 210mm;
+	height: 296.99mm; /* not 297mm for chrome not to print two pages */
+
+	text-align: center;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+	line-height: 0;
+	position: absolute;
+	/*border: 3px solid red;*/
+
+}
+
+.el-stickers-table {
+	position: absolute;
+}
+
+.el-stickers-table-table {
+	table-layout: fixed;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	border-collapse: separate;
+}
+
+
+.el-stickers-table-td {
+	position: relative;
+	border: 1px solid brown;
+}
+
+.el-stickers-table-td > * {
+	position: absolute;
+	top: 0;
+	right: 2mm;
+	bottom: 0;
+	left: 2mm;
+}
+
+.el-stickers-table-td:first-child > * {
+	left: 0;
+}
+
+.el-stickers-table-td:last-child > * {
+	right: 0;
+}
