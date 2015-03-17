@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import config
+from . import config
 import pg8000
 import pg8000.types
 import re
