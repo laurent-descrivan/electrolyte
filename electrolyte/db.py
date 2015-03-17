@@ -37,7 +37,6 @@ def reset():
 	for statement in script.split(";;"):
 		statement = statement.strip()
 		if statement and not statement.startswith("--"):
-			print(statement)
 			cur = conn.cursor()
 			cur.execute(statement)
 
