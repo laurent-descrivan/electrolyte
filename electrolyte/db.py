@@ -3,19 +3,18 @@
 
 from . import config
 import pg8000
-import pg8000.types
 import re
 import os
 from DBUtils.PooledDB import PooledDB
 
-pg8000.dbapi.paramstyle = "named"
+pg8000.paramstyle = "named"
 pool = PooledDB(
 	mincached=1,
 	maxcached=10,
 	maxconnections=20,
 	maxshared=0,
 	blocking=True,
-	creator=pg8000.DBAPI,
+	creator=pg8000,
 	host=config.DATABASE_HOST,
 	user=config.DATABASE_USER,
 	password=config.DATABASE_PASSWORD,
@@ -143,7 +142,7 @@ def put_thing(thing):
 	create_or_update("things", thing)
 
 def put_blob(blob):
-	blob["content"] = pg8000.types.Bytea(blob["content"])
+	blob["content"] = pg8000.Bytea(blob["content"])
 	create_or_update("blobs", blob)
 
 def get_blob(sha256):
