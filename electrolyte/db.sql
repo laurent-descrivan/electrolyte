@@ -156,7 +156,7 @@ INSERT INTO things(id, parent_id, name, description) VALUES
 
 -- http://blog.lostpropertyhq.com/postgres-full-text-search-is-good-enough/
 
-CREATE EXTENSION IF NOT EXISTS unaccent;;
+-- CREATE EXTENSION IF NOT EXISTS unaccent;;
 
 DROP TEXT SEARCH CONFIGURATION IF EXISTS fr;;
 CREATE TEXT SEARCH CONFIGURATION fr ( COPY = french );;
