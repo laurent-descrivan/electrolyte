@@ -9,7 +9,7 @@ import db
 import image
 import hashlib
 
-thing = Service(name='things', path='/things/{id}', description="Thing resource", renderer="jsonplusplus")
+thing = Service(name='things', path='/things/{id}', description="Thing resource")
 
 @thing.get()
 def get_thing(request):
