@@ -9,7 +9,7 @@ import db
 import image
 import hashlib
 
-thing = Service(name='things', path='/api/things/{id}', description="Thing resource")
+thing = Service(name='things', path='/things/{id}', description="Thing resource", renderer="jsonplusplus")
 
 @thing.get()
 def get_thing(request):
@@ -37,7 +37,7 @@ def put_thing(request):
 	db.put_thing(request.json_body)
 	return {}
 
-eans = Service(name='eans', path='/api/eans/reserve', description="Code resource")
+eans = Service(name='eans', path='/eans/reserve', description="Code resource")
 
 @eans.post()
 def reserve_eans(request):
@@ -57,7 +57,7 @@ def reserve_eans(request):
 
 
 
-blobs = Service(name='blobss', path='/api/blobs', description="Blob resource")
+blobs = Service(name='blobss', path='/blobs', description="Blob resource")
 
 @blobs.post()
 def post_blob(request):
@@ -78,7 +78,7 @@ def post_blob(request):
 	return { "id": blob_id }
 
 
-blob = Service(name='blobs', path='/api/blobs/{id}', description="Blob resource")
+blob = Service(name='blobs', path='/blobs/{id}', description="Blob resource")
 
 @blob.get()
 def get_blob(request):
@@ -100,7 +100,7 @@ def get_blob(request):
 		)
 
 
-search = Service(name='search', path='/api/search', description="Search resource")
+search = Service(name='search', path='/search', description="Search resource")
 
 @search.get()
 def search_thing(request):
