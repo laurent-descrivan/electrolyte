@@ -19,6 +19,8 @@ CREATE SEQUENCE things_id_seq MINVALUE 1000000000100;;
 CREATE TABLE things (
 	"id" bigint NOT NULL DEFAULT nextval('things_id_seq') CONSTRAINT int52_js_compatible_id CHECK (0 < id AND id <= 4503599627370496),
 	"parent_id" bigint,
+	"author" varchar(255),
+	"ip" varchar(255),
 	"name" varchar(255),
 	"description" text,
 	"image_id" char(64),
@@ -31,6 +33,8 @@ CREATE TABLE things_log (
 	"timestamp" timestamp NOT NULL,
 	"id" bigint NOT NULL CONSTRAINT int52_js_compatible_id CHECK (0 < id AND id <= 4503599627370496),
 	"parent_id" bigint,
+	"author" varchar(255),
+	"ip" varchar(255),
 	"name" varchar(255),
 	"description" text,
 	"image_id" char(64),
@@ -42,9 +46,17 @@ CREATE TABLE things_log (
 CREATE OR REPLACE FUNCTION things_logger() RETURNS TRIGGER AS $body$
 BEGIN
     IF (TG_OP = 'UPDATE' OR TG_OP = 'INSERT') THEN
-    	INSERT INTO things_log VALUES(NOW(), NEW.*);
+    	DELETE FROM things_log
+    		WHERE id = NEW.id
+    		  AND timestamp >= date_trunc('day', now())
+    		  AND timestamp < date_trunc('day', now()) + INTERVAL '1 day';
+    	INSERT INTO things_log VALUES(now(), NEW.*);
     ELSIF (TG_OP = 'DELETE') THEN
-    	INSERT INTO things_log(timestamp, id, parent_id, name, description, image_id) VALUES(NOW(), OLD.id, NULL, NULL, NULL, NULL);
+    	DELETE FROM things_log
+    		WHERE id = OLD.id
+    		  AND timestamp >= date_trunc('day', now())
+    		  AND timestamp < date_trunc('day', now()) + INTERVAL '1 day';
+    	INSERT INTO things_log(timestamp, id, parent_id, author, ip, name, description, image_id) VALUES(now(), OLD.id, NULL, OLD.author, OLD.ip, NULL, NULL, NULL);
     END IF;
     RETURN NULL;
 END;
