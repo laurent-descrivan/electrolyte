@@ -29,17 +29,6 @@ def init_columns():
 		cur.execute("""SELECT * FROM "%s" LIMIT 0""" % table)
 		COLUMNS[table] = [desc[0].lower() for desc in cur.description]
 
-def reset():
-	with open(os.path.join(os.path.dirname(__file__), "db.sql"), "r") as f:
-		script = f.read().decode('utf8')
-		script = re.sub(r'(?m)^\s*--.*?$', '', script)
-	conn = pool.connection()
-	for statement in script.split(";;"):
-		statement = statement.strip()
-		if statement and not statement.startswith("--"):
-			cur = conn.cursor()
-			cur.execute(statement)
-
 def fetch(query, parameters):
 	cur = pool.connection().cursor()
 	cur.execute(query, parameters)
@@ -164,5 +153,4 @@ def search(text):
 
 	return results
 
-reset()
 init_columns()
