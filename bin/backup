@@ -52,7 +52,8 @@ def content_type_to_ext(content_type):
 
 
 def main():
-	shutil.rmtree(BACKUP_PATH)
+	if os.path.exists(BACKUP_PATH):
+		shutil.rmtree(BACKUP_PATH)
 	os.makedirs(BACKUP_PATH)
 	backup_text()
 	backup_blobs()
