@@ -1,8 +1,10 @@
 #!/bin/bash
 
-set -e
+set -eu
 set -o nounset
+
+cd "${BASH_SOURCE%/*}/.."
 
 git pull origin master
 
-./migrate
+./bin/migrate
