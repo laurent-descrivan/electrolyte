@@ -4,6 +4,9 @@
 import os, sys
 import shutil
 
+activate_this = os.path.join(os.path.dirname(__file__), '..', '..', 'bin', 'activate_this.py')
+execfile(activate_this, dict(__file__=activate_this))
+
 project_root = os.path.join(os.path.dirname(__file__), "..")
 os.chdir(project_root)
 sys.path.append(project_root)
