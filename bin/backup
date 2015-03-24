@@ -1,0 +1,61 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+import os, sys
+import shutil
+
+project_root = os.path.join(os.path.dirname(__file__), "..")
+os.chdir(project_root)
+sys.path.append(project_root)
+
+from conf import db_app, db_reset
+from electrolyte import db
+
+BACKUP_PATH = "backups"
+
+def backup_text():
+	os.system(
+		""" PGPASSWORD="%s" pg_dump -h "%s" -U "%s" --schema=public --schema-only -f "backups/schema.sql" "%s" """ %
+		(
+			db_reset.DATABASE_SUPER_PASSWORD,
+			db_app.DATABASE_HOST,
+			db_reset.DATABASE_SUPER_USER,
+			db_app.DATABASE_NAME,
+		)
+	)
+	os.system(
+		""" PGPASSWORD="%s" pg_dump -h "%s" -U "%s" --schema=public --exclude-table=blobs --inserts -f "backups/dump.sql" "%s" """ %
+		(
+			db_reset.DATABASE_SUPER_PASSWORD,
+			db_app.DATABASE_HOST,
+			db_reset.DATABASE_SUPER_USER,
+			db_app.DATABASE_NAME,
+		)
+	)
+
+def backup_blobs():
+	output_path = "%s/blobs" % BACKUP_PATH
+	if not os.path.exists(output_path):
+		os.makedirs(output_path)
+	for blob in db.fetch("SELECT * FROM blobs"):
+		with open("%s/%s.%s" % (output_path, blob['id'], content_type_to_ext(blob['content_type'])), 'w') as out:
+			out.write(blob['content'])
+
+def content_type_to_ext(content_type):
+	return {
+		"image/jpeg": "jpg",
+		"image/jpg": "jpg",
+		"image/png": "png",
+		"image/gif": "gif",
+		"image/bmp": "bmp",
+	}.get(content_type, ".blob")
+
+
+def main():
+	shutil.rmtree(BACKUP_PATH)
+	os.makedirs(BACKUP_PATH)
+	backup_text()
+	backup_blobs()
+
+if __name__ == "__main__":
+	main()

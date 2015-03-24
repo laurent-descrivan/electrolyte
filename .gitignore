@@ -3,3 +3,4 @@ config.py
 static/index.html
 conf/db_app.py
 conf/db_reset.py
+/backups
