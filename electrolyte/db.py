@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from . import config
+from conf import db_app
 import pg8000
 import re
 import os
@@ -15,10 +15,10 @@ pool = PooledDB(
 	maxshared=0,
 	blocking=True,
 	creator=pg8000,
-	host=config.DATABASE_HOST,
-	user=config.DATABASE_USER,
-	password=config.DATABASE_PASSWORD,
-	database=config.DATABASE_NAME,
+	host=db_app.DATABASE_HOST,
+	user=db_app.DATABASE_USER,
+	password=db_app.DATABASE_PASSWORD,
+	database=db_app.DATABASE_NAME,
 )
 
 COLUMNS = {}
@@ -29,7 +29,7 @@ def init_columns():
 		cur.execute("""SELECT * FROM "%s" LIMIT 0""" % table)
 		COLUMNS[table] = [desc[0].lower() for desc in cur.description]
 
-def fetch(query, parameters):
+def fetch(query, parameters={}):
 	cur = pool.connection().cursor()
 	cur.execute(query, parameters)
 	while True:
