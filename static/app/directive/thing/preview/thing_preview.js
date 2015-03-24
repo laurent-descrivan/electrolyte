@@ -25,7 +25,7 @@ electrolyte.directive('elThingPreview', function($location, barcodeService) {
 				if (image_id) {
 					return "/api/blobs/"+image_id;
 				} else {
-					return "/app/directive/thing/preview/grey_bg.svg";
+					return "/app/directive/thing/preview/grey_bg.png";
 				}
 			};
 		},
