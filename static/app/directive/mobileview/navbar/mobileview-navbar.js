@@ -28,7 +28,7 @@ electrolyte.directive('elMobileviewNavbar', function(nav) {
 	};
 });
 
-electrolyte.directive('elMobileviewNavbarCategory', function(nav, $compile, $timeout) {
+electrolyte.directive('elMobileviewNavbarCategory', function(nav, $compile) {
 	return {
 		require: '^elMobileviewNavbar',
 		restrict: 'E',
@@ -48,29 +48,29 @@ electrolyte.directive('elMobileviewNavbarCategory', function(nav, $compile, $tim
 		},
 		compile: function(){
 
-			var moreButton = $compile(
-				'<div>'+
-					'<div class="el-mobileview-navbar-item el-mobileview-navbar-more" ng-click="navbar.switchCategories()">'+
-						'<div>'+
-							'<i class="el-icon fa fa-ellipsis-h"></i>'+
-							'<span class="el-title">Autre</span>'+
-						'</div>'+
-					'</div>'+
-				'</div>'
-			);
+			// var moreButton = $compile(
+			// 	'<div>'+
+			// 		'<div class="el-mobileview-navbar-item el-mobileview-navbar-more" ng-click="navbar.switchCategories()">'+
+			// 			'<div>'+
+			// 				'<i class="el-icon fa fa-ellipsis-h"></i>'+
+			// 				'<span class="el-title">Autre</span>'+
+			// 			'</div>'+
+			// 		'</div>'+
+			// 	'</div>'
+			// );
 
 			return function(scope, element, attrs, elMobileviewNavbar) {
-				$timeout(function(){
-					element.find(".el-mobileview-navbar-category-container:first").append(moreButton(scope));
-				});
+				// $timeout(function(){
+				// 	element.find(".el-mobileview-navbar-category-container:first").append(moreButton(scope));
+				// });
 
 
-				scope.switchToCategory = function switchToCategory() {
-					if (!scope.pages[nav.tab]) {
-						scope.switchPage(scope.defaultPage);
-					}
-					elMobileviewNavbar.hideCategories();
-				}
+				// scope.switchToCategory = function switchToCategory() {
+				// 	if (!scope.pages[nav.tab]) {
+				// 		scope.switchPage(scope.defaultPage);
+				// 	}
+				// 	elMobileviewNavbar.hideCategories();
+				// }
 				// scope.disp = function(pages,tab) {
 				// 	console.log("true?", scope.pages,tab, pages[tab]);
 				// 	return pages[tab];

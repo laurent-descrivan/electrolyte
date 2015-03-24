@@ -81,6 +81,9 @@
 								<el-blob-image ng-model="thing.image_id"></el-blob-image>
 							</div>
 						</div>
+						<div class="el-thing-content" ng-switch-when="LOG">
+							<el-thing-logentry el-logentry="entry" ng-repeat="entry in log"></el-thing-logentry>
+						</div>
 						<div class="el-thing-content" ng-switch-when="LOCATION">
 
 							<div>
@@ -116,10 +119,11 @@
 			</el-mobileview-content>
 
 			<el-mobileview-navbar>
-				<el-mobileview-navbar-category icon="info-circle" text="Info"        name="DESCRIPTION" >
-					<el-mobileview-navbar-page icon="search"      text="Recherche"     name="SEARCH"       ></el-mobileview-navbar-page>
-					<el-mobileview-navbar-page icon="list-alt"    text="Description" name="DESCRIPTION" el-mobileview-navbar-default></el-mobileview-navbar-page>
-					<el-mobileview-navbar-page icon="map-marker"  text="Lieu"        name="LOCATION"    ></el-mobileview-navbar-page>
+				<el-mobileview-navbar-category icon="info-circle"   text="Info"        name="DESCRIPTION"                             >
+					<el-mobileview-navbar-page icon="search"        text="Recherche"   name="SEARCH"                                  ></el-mobileview-navbar-page>
+					<el-mobileview-navbar-page icon="list-alt"      text="Description" name="DESCRIPTION" el-mobileview-navbar-default></el-mobileview-navbar-page>
+					<el-mobileview-navbar-page icon="fast-backward" text="Historique"  name="LOG"                                 ></el-mobileview-navbar-page>
+					<el-mobileview-navbar-page icon="map-marker"    text="Lieu"        name="LOCATION"                                ></el-mobileview-navbar-page>
 				</el-mobileview-navbar-category>
 
 				<el-mobileview-navbar-category icon="cog"         text="Options">

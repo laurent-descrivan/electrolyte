@@ -125,6 +125,18 @@ def get_thing_children(ean):
 	things.reverse()
 	return things
 
+def get_thing_log(ean):
+	things = list(fetch("""
+		SELECT *
+		FROM things_log
+		WHERE id = :ean
+		ORDER BY timestamp
+		LIMIT 10
+		""", {"ean": ean}))
+
+	things.reverse()
+	return things
+
 
 def put_thing(thing):
 	create_or_update("things", thing)

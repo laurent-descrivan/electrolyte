@@ -9,7 +9,7 @@ import db
 import image
 import hashlib
 
-thing = Service(name='things', path='/things/{id}', description="Thing resource")
+thing = Service(name='things', path='/things/{id}', description="Thing resource", renderer="jsonplusplus")
 
 @thing.get()
 def get_thing(request):
@@ -21,6 +21,7 @@ def get_thing(request):
 			"thing": thing,
 			"ancestors": db.get_thing_ancestors(request.matchdict['id']),
 			"children": db.get_thing_children(request.matchdict['id']),
+			"log": db.get_thing_log(request.matchdict['id']),
 		}
 	else:
 		return {
@@ -28,13 +29,17 @@ def get_thing(request):
 			"thing": {
 				"id": long(request.matchdict['id']),
 			},
+			"log": db.get_thing_log(request.matchdict['id']),
 		}
 
 
 @thing.put()
 def put_thing(request):
 	"""Sets a thing."""
-	db.put_thing(request.json_body)
+	thing = request.json_body
+	thing["ip"] = request.client_addr
+	thing["author"] = request.client_addr
+	db.put_thing(thing)
 	return {}
 
 eans = Service(name='eans', path='/eans/reserve', description="Code resource")
