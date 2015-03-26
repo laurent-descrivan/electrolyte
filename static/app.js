@@ -41,7 +41,7 @@ electrolyte.config(function($routeProvider, $locationProvider) {
 			controller: 'StickersController'
 		}).
 		otherwise({
-			redirectTo: '/things/4'
+			redirectTo: '/things/40000900001'
 		});
 });
 

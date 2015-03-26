@@ -153,17 +153,30 @@ CREATE CONSTRAINT TRIGGER things_gc_trigger AFTER INSERT OR UPDATE ON things
 
 INSERT INTO printed_eans(id) VALUES(978210055994);;
 INSERT INTO things(id, parent_id, name, description) VALUES
-	(40000000006, DEFAULT, 'Electrolab', 'Une sorte de fablab.'),
-	(40000000005, 40000000006, 'Zone convi', DEFAULT),
-	(40000000003, 40000000005, 'Étagère', DEFAULT),
-	(40000000004, 40000000003, 'Malette outillage', 'Un genre de grosse valise'),
-	(40000000002, 40000000004, 'Boite à tournevis', 'Plat ou cruciforme, choisissez celui qui vous convient'),
-	(40000000001, 40000000002, 'Tournevis cruciforme', 'Outil complètement classique'),
-	(40000000007, 40000000002, 'Tournevis plat', 'Outil hyper classique'),
-	(40000000008, 40000000002, 'Tournevis plat 1', 'Outil hyper classique'),
-	(40000000009, 40000000002, 'Tournevis plat 2', 'Outil hyper classique'),
-	(40000000010, 40000000002, 'Tournevis plat 3', 'Outil hyper classique'),
-	(40000300017, 40000000002, 'Carton à scanners', 'Carton contenant les scanners à code barre')
+	(40000900001, DEFAULT, 'Electrolab', 'Une sorte de fablab.'),
+	(40000900002, 40000900001, 'Zone accueil', DEFAULT),
+	(40000900003, 40000900001, 'Zone convi (lounge)', DEFAULT),
+	(40000900004, 40000900001, 'Zone projets', DEFAULT),
+	(40000900005, 40000900001, 'Zone élec', DEFAULT),
+	(40000900006, 40000900001, 'Zone méca light', DEFAULT),
+	(40000900007, 40000900001, 'Zone méca lourde', DEFAULT),
+	(40000900008, 40000900001, 'Zone impression 2D', DEFAULT),
+	(40000900009, 40000900001, 'Zone chimie', DEFAULT),
+	(40000900010, 40000900001, 'Zone cathédrale', DEFAULT),
+	(40000900011, 40000900001, 'Zone élec plus', '(Ancienne zone convi)'),
+	(40000900012, 40000900001, 'Zone stockage huile', DEFAULT),
+	(40000900013, 40000900001, 'Zone traitement de surface', DEFAULT),
+	(40000900014, 40000900001, 'Zone fonderie', DEFAULT),
+	(40000900015, 40000900001, 'Zone formation 1', DEFAULT),
+	(40000900016, 40000900001, 'Zone formation 2', DEFAULT),
+	(40000900017, 40000900001, 'Zone stock travaux', DEFAULT),
+
+	(40000300017, 40000900005, 'Carton à scanners', 'Carton contenant les scanners à code barre'),
+	(40000300127, 40000900006, 'Malette outillage', 'Un genre de grosse valise'),
+
+	(40000300074, 40000900004, 'Imprimante grandes étiquettes', DEFAULT),
+	(40000300126, 40000900004, 'Imprimante petites étiquettes', DEFAULT)
+
 ;;
 
 -- http://blog.lostpropertyhq.com/postgres-full-text-search-is-good-enough/
