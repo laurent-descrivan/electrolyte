@@ -43,7 +43,7 @@ electrolyte.directive('elBarcodeKeyboardInput', function($timeout, virtualNumeri
 			// Add barcode scanner detection to prevent laser scans to be mixed up with user typing
 			var barcodeScannerDetected = false;
 			var onKeydown = function onKeydown(event) {
-				barcodeScannerDetected = true;
+				// barcodeScannerDetected = true;
 				event.preventDefault();
 				barcodeService.scannerKeypressHandler(event, function(barcode){
 					exit();
