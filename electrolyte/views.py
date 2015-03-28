@@ -83,7 +83,7 @@ def post_blob(request):
 	return { "id": blob_id }
 
 
-blob = Service(name='blobs', path='/blobs/{id}', description="Blob resource")
+blob = Service(name='blobs', path='/blobs/{width}/{height}/{id}', description="Blob resource")
 
 @blob.get()
 def get_blob(request):
@@ -98,8 +98,8 @@ def get_blob(request):
 	else:
 		blob = db.get_blob(sha)
 		content = blob["content"]
-		width  = int(request.params.get('width', '0'))
-		height = int(request.params.get('height', '0'))
+		width  = int(request.matchdict.get('width', '0'))
+		height = int(request.matchdict.get('height', '0'))
 		if width or height:
 			content = image.thumbnail_cover(content, width, height)
 		return Response(

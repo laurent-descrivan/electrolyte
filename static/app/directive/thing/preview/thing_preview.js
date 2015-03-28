@@ -23,7 +23,7 @@ electrolyte.directive('elThingPreview', function($location, barcodeService) {
 
 			scope.getImageUrl = function getImageUrl(image_id) {
 				if (image_id) {
-					return "/api/blobs/"+image_id+"?width=128&height=128";
+					return "/api/blobs/128/128/"+image_id;
 				} else {
 					return "/app/directive/thing/preview/grey_bg.png";
 				}

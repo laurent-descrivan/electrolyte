@@ -47,7 +47,7 @@ electrolyte.directive('elBlobImage', function($http) {
 
 			scope.blobUrl = function(id) {
 				if (id) {
-					return "/api/blobs/" + id;
+					return "/api/blobs/600/0/" + id;
 				} else {
 					return "/app/page/thing/hexdoll_soldering_iron_stand_transparent.svg";
 				}

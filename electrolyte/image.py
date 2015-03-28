@@ -67,7 +67,7 @@ def thumbnail_cover(image_data, new_width, new_height):
 	if not new_width:
 		new_width = int(new_height * old_ratio)
 	elif not new_height:
-		new_height = int(old_width / old_ratio)
+		new_height = int(new_width / old_ratio)
 
 	new_ratio = float(new_width) / float(new_height)
 
@@ -83,6 +83,8 @@ def thumbnail_cover(image_data, new_width, new_height):
 		top = int((corrected_height - new_height) / 2.0)
 		bottom = top + new_height
 		image = image.crop((0, top, new_width, bottom))
+	else:
+		image = image.resize((new_width, new_height), Image.ANTIALIAS)
 
 	outbuffer = StringIO.StringIO()
 	image.save(outbuffer, format="JPEG", quality=100)
