@@ -98,8 +98,8 @@ def get_blob(request):
 	else:
 		blob = db.get_blob(sha)
 		content = blob["content"]
-		width  = request.params.get('width', None)
-		height = request.params.get('height', None)
+		width  = request.params.get('width', '0')
+		height = request.params.get('height', '0')
 		content = image.thumbnail_cover(content, int(width), int(height))
 		return Response(
 			content_type=str(blob["content_type"]),
