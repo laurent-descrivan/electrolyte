@@ -97,9 +97,13 @@ def get_blob(request):
 		)
 	else:
 		blob = db.get_blob(sha)
+		content = blob["content"]
+		width  = request.params.get('width', None)
+		height = request.params.get('height', None)
+		content = image.thumbnail_cover(content, int(width), int(height))
 		return Response(
 			content_type=str(blob["content_type"]),
-			body=blob["content"],
+			body=content,
 			cache_control="public; max-age=86400",
 			etag=sha,
 		)

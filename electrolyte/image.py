@@ -2,8 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import StringIO
-from PIL import Image
-from PIL import ExifTags
+from PIL import Image, ExifTags
 
 # Reverse look for exif tag for orientation
 for (k,v) in ExifTags.TAGS.iteritems():
@@ -49,3 +48,44 @@ def autorotate(indata):
 			return content
 
 	return indata
+
+def thumbnail_cover(image_data, new_width, new_height):
+	"""
+		This function resize a picture, but instead of pil's
+		thumbnail function, this resize bigger and then crop
+		so that the picture has no background color, and is
+		always the correct size (like css background-size:cover)
+	"""
+
+	inbuffer = StringIO.StringIO(image_data)
+	image = Image.open(inbuffer)
+
+	old_width = image.size[0]
+	old_height = image.size[1]
+	old_ratio = float(old_width) / float(old_height)
+
+	if not new_width:
+		new_width = int(new_height * old_ratio)
+	elif not new_height:
+		new_height = int(old_width / old_ratio)
+
+	new_ratio = float(new_width) / float(new_height)
+
+	if new_ratio < old_ratio:
+		corrected_width = int(new_height * old_ratio)
+		image = image.resize((corrected_width, new_height), Image.ANTIALIAS)
+		left = int((corrected_width - new_width) / 2.0)
+		right = left + new_width
+		image = image.crop((left, 0, right, new_height))
+	elif new_ratio > old_ratio:
+		corrected_height = int(new_width / old_ratio)
+		image = image.resize((new_width, corrected_height), Image.ANTIALIAS)
+		top = int((corrected_height - new_height) / 2.0)
+		bottom = top + new_height
+		image = image.crop((0, top, new_width, bottom))
+
+	outbuffer = StringIO.StringIO()
+	image.save(outbuffer, format="JPEG", quality=100)
+	content = outbuffer.getvalue()
+	outbuffer.close()
+	return content
