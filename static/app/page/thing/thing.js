@@ -81,14 +81,14 @@ angular.module("electrolyte").controller('ThingController', function($scope, $lo
 
 	$scope.menuPrintSmall = function menuPrintSmall() {
 		var sid = barcodeService.eanNormalize($scope.thing.id).substr(0,12);
-		$http.post('http://172.16.13.251/fp/running?ean='+sid);
+		$http.post('http://172.16.42.20/fp/running?ean='+sid);
 
 		menuHide();
 	}
 
 	$scope.menuPrintBig = function menuPrintBig() {
 		var sid = barcodeService.eanNormalize($scope.thing.id).substr(0,12);
-		$http.post('http://172.16.13.250/fp/running?ean='+sid);
+		$http.post('http://172.16.42.21/fp/running?ean='+sid);
 
 		menuHide();
 	}
