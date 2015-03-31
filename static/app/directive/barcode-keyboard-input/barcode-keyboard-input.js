@@ -28,6 +28,7 @@ electrolyte.directive('elBarcodeKeyboardInput', function($timeout, virtualNumeri
 			scope.$watch("inputCode", function(value){
 				if (value.length==12) {
 					if (!barcodeScannerDetected) {
+						virtualNumericInputService.hide();
 						scope.elCode({code:value+barcodeService.eanChecksum(value)});
 					}
 				}
@@ -64,6 +65,7 @@ electrolyte.directive('elBarcodeKeyboardInput', function($timeout, virtualNumeri
 					exit();
 					console.log("via scanner", barcode);
 					soundService.beep();
+					virtualNumericInputService.hide();
 					scope.elCode({code:barcode});
 				});
 			};
