@@ -167,14 +167,18 @@ angular.module("electrolyte").controller('ThingController', function($scope, $lo
 		// };
 
 		$scope.onNewBarcode = function onNewBarcode(code){
-			document.location.hash = "#/things/" + code.substr(0,12);
+			$timeout(function(){
+				document.location.hash = "/things/" + code.substr(0,12);
+			}, 0);
 		};
 
 
 		$scope.$on("barcode", function(event, barcode) {
 			soundService.beep();
-			setTimeout(function() {
-				document.location.hash = "#/things/" + barcode;
+			// Use $timeout to prevent TypeError: Cannot read property '$$nextSibling' of null
+			// since changing hash would mean destroying elements that are currently in digest
+			$timeout(function(){
+				document.location.hash = "/things/" + barcode;
 			}, 0);
 		});
 

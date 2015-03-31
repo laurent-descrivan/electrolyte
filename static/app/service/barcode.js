@@ -1,7 +1,7 @@
 "use strict";
 
 (function(){
-	function BarcodeService($rootScope, $compile) {
+	function BarcodeService($rootScope, $compile, $timeout) {
 		var that = this;
 
 		function prng10k(n){
@@ -128,10 +128,8 @@
 					event.preventDefault();
 					scannerBuffer.push(String.fromCharCode(event.which));
 
-					if (scannerFastTypingTimer) {
-						clearTimeout(scannerFastTypingTimer);
-						scannerFastTypingTimer = null;
-					}
+					$timeout.cancel(scannerFastTypingTimer);
+					scannerFastTypingTimer = null;
 
 					var checkFastbuffer = function() {
 						scannerFastTypingTimer = null;
@@ -156,7 +154,7 @@
 						}
 					}
 
-					scannerFastTypingTimer = setTimeout(checkFastbuffer, 100);
+					scannerFastTypingTimer = $timeout(checkFastbuffer, 100);
 				// } else {
 
 				// 	var scannerInputStartKeyCode = 0x42; // Ctrl-B = ASCII STX code sent by barcode scanner before each input

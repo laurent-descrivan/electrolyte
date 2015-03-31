@@ -1,6 +1,6 @@
 "use strict";
 
-electrolyte.directive('elBarcodeKeyboardInput', function($timeout, virtualNumericInputService, barcodeService) {
+electrolyte.directive('elBarcodeKeyboardInput', function($timeout, virtualNumericInputService, barcodeService, soundService) {
 
 	return {
 		restrict: 'E',
@@ -13,7 +13,7 @@ electrolyte.directive('elBarcodeKeyboardInput', function($timeout, virtualNumeri
 		link: function (scope, element, attrs) {
 
 			var ZERO_INPUT_CODE = "0000000000000";
-			var EMPTY_INPUT_CODE = "\u02CD\u02CD\u02CD\u02CD\u02CD\u02CD\u02CD\u02CD\u02CD\u02CD\u02CD\u02CD";
+			var EMPTY_INPUT_CODE = "------------";
 			scope.displayInputCode = function displayInputCode(inputCode) {
 				var checksum = barcodeService.eanChecksum(inputCode + ZERO_INPUT_CODE.substr(inputCode.length));
 				inputCode = inputCode + EMPTY_INPUT_CODE.substr(inputCode.length);
@@ -27,11 +27,9 @@ electrolyte.directive('elBarcodeKeyboardInput', function($timeout, virtualNumeri
 
 			scope.$watch("inputCode", function(value){
 				if (value.length==12) {
-					$timeout(function(){
-						if (!barcodeScannerDetected) {
-							scope.elCode({code:value+barcodeService.eanChecksum(value)});
-						}
-					}, 500);
+					if (!barcodeScannerDetected) {
+						scope.elCode({code:value+barcodeService.eanChecksum(value)});
+					}
 				}
 			});
 
@@ -42,12 +40,30 @@ electrolyte.directive('elBarcodeKeyboardInput', function($timeout, virtualNumeri
 
 			// Add barcode scanner detection to prevent laser scans to be mixed up with user typing
 			var barcodeScannerDetected = false;
+			var barcodeScannerDetectedTimer;
+			var lastKeydown = new Date().getTime();
 			var onKeydown = function onKeydown(event) {
-				// barcodeScannerDetected = true;
 				event.preventDefault();
+
+				var now = new Date().getTime();
+				var delayFromLastKeydown = now - lastKeydown;
+				lastKeydown = now;
+
+				$timeout.cancel(barcodeScannerDetectedTimer);
+				if (delayFromLastKeydown<100) {
+					barcodeScannerDetected = true;
+					barcodeScannerDetectedTimer = $timeout(function() {
+						barcodeScannerDetected = false;
+					}, 100);
+				} else {
+					barcodeScannerDetected = false;
+				}
+
+				// barcodeScannerDetected = true;
 				barcodeService.scannerKeypressHandler(event, function(barcode){
 					exit();
 					console.log("via scanner", barcode);
+					soundService.beep();
 					scope.elCode({code:barcode});
 				});
 			};
