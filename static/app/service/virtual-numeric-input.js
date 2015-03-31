@@ -88,7 +88,7 @@
 			};
 			document.addEventListener("keydown", onKey, true);
 
-			e = $('<input type="text" pattern="\\d*" style="position: fixed; bottom: -100px;" />');
+			e = $('<input type="tel" pattern="[0-9]*" style="position: fixed; bottom: -100px;" />');
 			e.on("keydown", function(event){
 				event.preventDefault();
 			});
