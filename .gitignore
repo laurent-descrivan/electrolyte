@@ -1,6 +1,7 @@
 *.pyc
 config.py
 static/index.html
+static/cache.manifest
 conf/db_app.py
 conf/db_reset.py
 /backups
