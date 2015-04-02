@@ -198,7 +198,7 @@ el-ean > canvas {
 .el-thing-page-input {
 	position: absolute;
 	bottom: 0px;
-	top: 0px;
+	height: 100%;
 	left: 0;
 	right: 0;
 	text-align: center;
