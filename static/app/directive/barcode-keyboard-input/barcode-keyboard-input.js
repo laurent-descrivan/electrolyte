@@ -25,19 +25,24 @@ electrolyte.directive('elBarcodeKeyboardInput', function($timeout, virtualNumeri
 			}
 			scope.resetInput();
 
+			var exit = function exit() {
+				document.removeEventListener("keydown", onKeydown, true);
+				virtualNumericInputService.hide();
+				scope.elClose();
+			}
+			scope.$on("$destroy", exit);
+
 			scope.$watch("inputCode", function(value){
 				if (value.length==12) {
 					if (!barcodeScannerDetected) {
-						virtualNumericInputService.hide();
-						scope.elCode({code:value+barcodeService.eanChecksum(value)});
+						try {
+							scope.elCode({code:value+barcodeService.eanChecksum(value)});
+						} finally {
+							exit();
+						}
 					}
 				}
 			});
-
-			var exit = function exit() {
-				document.removeEventListener("keydown", onKeydown, true);
-				scope.elClose();
-			}
 
 			// Add barcode scanner detection to prevent laser scans to be mixed up with user typing
 			var barcodeScannerDetected = false;
@@ -62,11 +67,13 @@ electrolyte.directive('elBarcodeKeyboardInput', function($timeout, virtualNumeri
 
 				// barcodeScannerDetected = true;
 				barcodeService.scannerKeypressHandler(event, function(barcode){
-					exit();
 					console.log("via scanner", barcode);
 					soundService.beep();
-					virtualNumericInputService.hide();
-					scope.elCode({code:barcode});
+					try {
+						scope.elCode({code:barcode});
+					} finally {
+						exit();
+					}
 				});
 			};
 
