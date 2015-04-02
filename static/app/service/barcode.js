@@ -171,7 +171,7 @@
 		})();
 
 		var askForBarcodeTemplate =
-			'<el-barcode-keyboard-input el-prompt="{{prompt}}" el-close="onClose()" el-code="onEnteredBarcode(code)">aaaaaaaaaaaaaa</el-barcode-keyboard-input>'
+			'<el-barcode-keyboard-input el-prompt="{{prompt}}" el-close="onClose()" el-code="onEnteredBarcode(code)"></el-barcode-keyboard-input>'
 
 		that.askForBarcode = function askForBarcode(prompt, callback) {
 			var scope = $rootScope.$new(true);
