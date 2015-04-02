@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import os, fnmatch
+import os, fnmatch, time
 
 os.chdir(os.path.join(os.path.dirname(__file__), ".."))
 
@@ -52,7 +52,7 @@ TAGS = {
 }
 
 def main():
-
+	cachebuster = str(int(time.time()))
 	with open('./static/index.html', 'w') as out:
 		out.write(INDEX_HEADER)
 
@@ -62,7 +62,7 @@ def main():
 			# matches = []
 			for root, dirnames, filenames in os.walk(STATIC_PATH+prefix):
 				for filename in fnmatch.filter(filenames, filter):
-					filepath = root[len(STATIC_PATH):]+"/"+filename
+					filepath = root[len(STATIC_PATH):]+"/"+filename+"?v="+cachebuster
 					out.write("\t\t" + (tag % filepath) + "\n")
 		out.write(INDEX_FOOTER)
 
