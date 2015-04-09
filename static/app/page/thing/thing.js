@@ -68,7 +68,7 @@ angular.module("electrolyte").controller('ThingController', function($scope, $lo
 	}
 
 	$scope.menuMoveTo = function menuMoveTo() {
-		barcodeService.askForBarcode("Ranger dans…", function(code) {
+		barcodeService.askForBarcode("Ranger dans...", function(code) {
 			$scope.thing.parent_id = parseInt(barcodeService.eanNormalize(code).substr(0,12), 10);
 		});
 
