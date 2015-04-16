@@ -43,11 +43,10 @@ angular.module("electrolyte").controller('ThingController', function($scope, $lo
 				var src = $scope.thing;
 				var dst = {"id":id};
 				for (var k in src) {
-					if (k!=="id" && k!=="parent_id") {
+					if (k!=="id") {
 						dst[k] = src[k];
 					}
 				}
-				console.log("iiid",dst);
 				$http.put('api/things/'+id, dst)
 					.success(function() {
 						soundService.beep();
