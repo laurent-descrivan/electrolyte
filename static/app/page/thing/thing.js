@@ -20,8 +20,17 @@ angular.module("electrolyte").controller('ThingController', function($scope, $lo
 					var src = data.thing;
 					var dst = $scope.thing;
 					for (var k in src) {
-						if (k!=="id" && k!=="parent_id") {
-							dst[k] = src[k];
+						if (k!=="id") {
+							var val = src[k];
+
+							// Increment name if is ends with int
+							if (k=="name") {
+								var match = val.match(/\s[0-9]+$/);
+								if (match) {
+									val = val.substring(0,val.length-match[0].length+1) + (parseInt(match[0])+1);
+								}
+							}
+							dst[k] = val;
 						}
 					}
 				} else {
