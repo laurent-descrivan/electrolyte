@@ -44,7 +44,16 @@ angular.module("electrolyte").controller('ThingController', function($scope, $lo
 				var dst = {"id":id};
 				for (var k in src) {
 					if (k!=="id") {
-						dst[k] = src[k];
+						var val = src[k];
+
+						// Increment name if is ends with int
+						if (k=="name") {
+							var match = val.match(/\s[0-9]+$/);
+							if (match) {
+								val = val.substring(0,val.length-match[0].length+1) + (parseInt(match[0])+1);
+							}
+						}
+						dst[k] = val;
 					}
 				}
 				$http.put('api/things/'+id, dst)
