@@ -32,6 +32,10 @@ def get_thing(request):
 			"log": db.get_thing_log(request.matchdict['id']),
 		}
 
+@thing.delete()
+def delete_thing(request):
+	db.delete_thing(request.matchdict['id'])
+
 
 @thing.put()
 def put_thing(request):

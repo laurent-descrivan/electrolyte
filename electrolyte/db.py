@@ -29,9 +29,14 @@ def init_columns():
 		cur.execute("""SELECT * FROM "%s" LIMIT 0""" % table)
 		COLUMNS[table] = [desc[0].lower() for desc in cur.description]
 
+def execute(cur, query, parameters=None):
+	# for debug
+	# print(query + " " + repr(parameters))
+	cur.execute(query, parameters)
+
 def fetch(query, parameters={}):
 	cur = pool.connection().cursor()
-	cur.execute(query, parameters)
+	execute(cur, query, parameters)
 	while True:
 		row = cur.fetchone()
 		if row is None:
@@ -83,16 +88,25 @@ def create_or_update(table_name, data):
 		values = ", ".join(values),
 	)
 
-	conn = pool.connection()
-	cur = conn.cursor()
-	cur.execute("BEGIN")
-	cur.execute("LOCK TABLE %s IN SHARE ROW EXCLUSIVE MODE;" % table_name)
-	cur.execute(upsert_request, insert_params)
-	cur.execute("COMMIT;")
+	cur = pool.connection().cursor()
+	execute(cur, "BEGIN")
+	execute(cur, "LOCK TABLE %s IN SHARE ROW EXCLUSIVE MODE;" % table_name)
+	execute(cur, upsert_request, insert_params)
+	execute(cur, "COMMIT;")
 
 def get_thing(ean):
 	return get_one("things", ean)
 
+def delete_thing(ean):
+	cur = pool.connection().cursor()
+
+	query = """
+		UPDATE "things"
+			SET parent_id=NULL, name=NULL, description=NULL, image_id=NULL
+			WHERE id = :ean
+	"""
+	execute(cur, query, {"ean": ean})
+	execute(cur, "COMMIT")
 
 def get_thing_ancestors(ean):
 	things = list(fetch("""

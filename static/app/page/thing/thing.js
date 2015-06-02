@@ -110,6 +110,27 @@ angular.module("electrolyte").controller('ThingController', function($scope, $lo
 		menuHide();
 	}
 
+	$scope.menuDelete = function menuDelete() {
+		var id = $scope.thing.id;
+		var name = ""+$scope.thing.name;
+		var parent_id = $scope.parent_id;
+		if (name.length>30) {
+			name = name.substring(30)+"...";
+		}
+		if (confirm("Supprimer " + name + " ?")) {
+			$http.delete('api/things/'+id).success(function(data) {
+				if (parent_id) {
+					$location.path("/things/"+parent_id);
+				} else {
+					$location.path("/");
+				}
+			}).error(function(data) {
+				alert("Erreur lors de la suppression de " + name);
+			});
+		}
+
+		menuHide();
+	}
 
 	$scope.readwrite = false;
 	$scope.swapReadwrite = function swapReadwrite() {
